@@ -15,7 +15,7 @@
           <ul class="nav-menu" id="header-nav">
             <li class="home selected"><a href="./index.html">Home</a></li>
             <li class="security"><a href="./security.html">Security Evaluation</a></li>
-            <li class="privacy"><a href="./privacy.html">Privacy Assessment</a></li>
+            <li class="privacy"><a href="./privacy.html">Potential Threats</a></li>
             <li class="user_study"><a href="./userstudy.html">User Study</a></li>
             <li class="source_code"><a href="https://github.com/covid-guardian/covid-guardian">Source Code</a></li>
           </ul>
@@ -39,49 +39,61 @@
                   </div>
                 </div>
                 <nav class="navigation">
-                  <h5>Introduction</h5>
+                  <!-- <h5>Introduction</h5> -->
                   <ul>
                     <li><a href="#motivation">Motivation</a></li>
                     <li><a href="#rq">Research Questions</a></li>
                     <li><a href="#contribution">Contributions</a></li>
                   </ul>
-                  <h5>Background</h5>
+                  <!-- <h5>Background</h5>
                   <ul>
                     <li><a href="#applications">Contact Tracing</a></li>
                     <li><a href="#related_work">Related Work</a></li>
-                  </ul>
+                  </ul> -->
                 </nav>
               </div>
               <div class="col-md-8 offset-md-1">
                 <h1 id="Introduction">Introduction</h1>
-                <p>Why Herald exists, how to get the code, and how to integrate Herald in to your mobile app.</p>
+                <p>We propose an automated security and privacy assessment tool - <b>COVIDGuardian</b> - which combines identification and analysis of Personal Identification Information (PII), static program analysis and data flow analysis, to determine security weaknesses and potential private information leakage.
+                  Furthermore, in light of our findings, we undertake a user study to investigate user concerns regarding contact tracing apps.</p> 
                 
                 <h2 id="motivation">Motivation</h2>
-                <p>VMware Herald is an open source Bluetooth Low Energy (BLE) based protocol licensed under the Apache-2.0 license</p>
-                <p>The aim of this research is to provide a much more reliable way to perform local information interchange between mobile phones. This has many potential applications, including <a href="https://vmware.github.io/herald/protocol/commercial">commercial use</a>, </p>
+                <p>The rapid spread of COVID-19 has made manual contact tracing difficult. Thus, various public health authorities have experimented with automatic contact tracing using mobile applications (or "apps"). These apps, however, have raised security and privacy concerns. </p>
+                <p>We hope that <b>COVIDGuardian</b>, and the issues raised through responsible disclosure to vendors, can contribute to the safe deployment of mobile contact tracing.</p>  
+                <p>As part of this, we offer concrete guidelines, and highlight gaps between user requirements and app performance.</p>
                 
                 <h2 id="rq">Research Questions</h2>
-                <p>To see information on integrating Herald with your own application, please see the <a href="https://vmware.github.io/herald/guide">developer &amp; integration guide</a>.</p>
-                <p>You can reach out to us and log general project and research data requests and issues on our <a href="https://github.com/vmware/herald/issues">GitHub issues site</a>.</p>
+                <ul>
+                  <li><p><b>RQ1:</b> What is the performance of our security and privacy assessment methodology, COVIDGuardian, compared to state-of-the-practice mobile app assessment tools?</p></li>
+                  <li><p><b>RQ2:</b> What is the security and privacy status of state-of-the-practice contact tracing apps?</p></li>
+                  <li><p><b>RQ3:</b> What is the robustness of state-of-the-practice contact tracing apps against potential security and privacy threats? </p></li>
+                  <li><p><b>RQ4:</b> What are the user concerns and requirements of contact tracing apps? </p></li>
+                </ul>
 
                 <h2 id="contribution">Contributions</h2>
 
                 <ul>
-                  <li><a href="https://github.com/vmware/herald-for-ios">Herald Protocol &amp; Payloads for iOS</a> (MIT licensed)</li>
-                  <li><a href="https://github.com/vmware/herald-for-android">Herald Protocol &amp; Payloads for Android</a> (MIT licensed)</li>
-                  <li><a href="https://github.com/vmware/herald">Herald Research &amp; documentation website</a> (this site) (MIT licensed)</li>
-                  <li><a href="https://github.com/vmware/herald-analysis">Sample R analysis scripts</a> for the fair efficacy formula (MIT licensed)</li>
-                  <li>Our generic <a href="https://github.com/vmware/herald-calibration">BLE RSSI calibration and distance estimation testing tool</a> (MIT licensed)</li>
+                  <li><p>We develop <b>COVIDGuardian</b>, the <i>first</i> automated security and privacy assessment tool that tests contact tracing apps for security weaknesses, malware, embedded trackers and private information leakage. COVIDGuardian outperforms 4 state-of-the-practice industrial and open-source tools. </p></li>
+                  <li><p>We assess the security and privacy status of 40 worldwide Android contact tracing apps. We discover more than 50% of the apps pose potential security risks due to: 
+                    <ul>
+                      <li>Employing cryptographic algorithms that are insecure or not part of best practice (72.5%); </li>
+                      <li>Storing sensitive information in clear text that could be potentially read by attackers (55.0%);</li>
+                      <li>Over 40% of apps pose security risks through Manifest weaknesses, e.g., allowing permissions for backup (hence, the copying of potentially unencrypted application data);</li>
+                      <li>Further, we identify that approximately 75% of the apps contain at least one tracker, potentially causing serious privacy violations, i.e., data leaks that lead to exposing PII to third parties.</li>
+                    </ul>
+                  </p></li>
+                  <li><p>By reviewing the state-of-the-art, we identify four major privacy and security threats against contact tracing apps. Our threat analysis finds that apps adopting decentralized architectures are not necessarily more secure than those adopting centralized architectures (by our measures). We also conduct a user study involving 373 participants, to investigate user concerns and requirements. The survey results indicate that the tracing accuracy and potential privacy risks of apps are the two major concerns. Compared to users' expectations of accurate proximity recording and at-risk alerts, users are more likely to use contact tracing apps with better privacy by design.</p></li>
+                  <li><p>We have disclosed our security and privacy assessment reports to the related stakeholders on 23 May 2020. We have received acknowledgements from numerous vendors, such as MySejahtera (Malaysia), Contact Tracer (USA), and Private Kit (USA). Our re-assessments confirms that their updates have addressed several of the issues identified.</p></li>
                 </ul>
 
-                <h1 id="Background">Background</h1>
+                <!-- <h1 id="Background">Background</h1>
                 <p>xxxxxx</p>
 
                 <h2 id="applications">Contact Tracing Applications</h2>
                 <p>xxxxx</p>
 
                 <h2 id="related_work">Related Work</h2>
-                <p>xxxxx</p>
+                <p>xxxxx</p> -->
               </div>
             </div>
           </div>
